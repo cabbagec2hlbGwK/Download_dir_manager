@@ -1,17 +1,30 @@
-import sys
 import os
 import time
 import json
 
 
+def log(val):
+    with open(os.environ.get("USERPROFILE")+"\\dir_manager\\log.txt", 'a') as file:
+        file.writelines(val)
+        file.writelines('\n')
+        file.writelines('*'*50)
+        file.writelines('\n')
+
+
 def moveF(path, file, map, mapping, rename=0):
     try:
+        print("*"*50)
         if "#" in file:
             os.rename(path+'\\'+file,
-                      mapping["fileM"][map]+"\\"+file.replace(map, "").replace("#", "")+(""if rename == 0 else str(rename)))
+                      mapping["fileM"][map]+"\\"+"'"+file.replace(map, "").replace("#", "")+(""if rename == 0 else str(rename)))
+            log(path+'\\'+file+" -> " + mapping["fileM"][map] +
+                "\\"+file.replace("#", "")+(""if rename == 0 else str(rename)))
         else:
             os.rename(
                 path+'\\'+file, mapping["fileM"][map]+"\\"+file+(""if rename == 0 else str(rename)))
+
+            log(path+'\\'+file+" -> " + mapping["fileM"][map] +
+                "\\"+file+(""if rename == 0 else str(rename)))
 
     except FileExistsError:
         moveF(path, file, map, mapping, rename=rename+1)
@@ -19,13 +32,11 @@ def moveF(path, file, map, mapping, rename=0):
 
 def fSort(path, mapping):
     files = [f for f in os.listdir(path) if os.path.isfile(path+"\\"+f)]
-    print(files)
     for file in files:
-        print(file)
         for map in mapping["fileM"]:
-            print(map)
             if map in file:
                 moveF(path, file, map, mapping)
+                break
     return
 
 
@@ -40,9 +51,9 @@ def monitor(path, mapping):
 
 def main():
     print(os.curdir)
-    mapping = json.load(open("mapping.json"))
+    mapping = json.load(
+        open(os.environ.get("USERPROFILE")+"\\dir_manager\\mapping.json"))
     target = mapping["target_dir"]
-    print(target)
     monitor(target, mapping)
 
 

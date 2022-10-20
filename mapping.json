@@ -1,7 +1,16 @@
 {
     "fileM":{
-        "TT":"C:\\Users\\asher\\OneDrive\\Desktop\\Projects\\python\\windows_services\\Download_dir_manager\\test",
-        "la":"C:\\Users\\asher\\OneDrive\\Desktop\\Projects\\python\\windows_services\\Download_dir_manager\\test"
+		"ISN2204":"C:\\Users\\asher\\Downloads\\College\\ISN2204",
+		"ISN2504":"C:\\Users\\asher\\Downloads\\College\\ISN2504",
+		"n2604":"C:\\Users\\asher\\Downloads\\College\\notes\\2604"
+		"n2204":"C:\\Users\\asher\\Downloads\\College\\notes\\2204"
+		"n2504":"C:\\Users\\asher\\Downloads\\College\\notes\\2504"
+		"coldoc":"C:\\Users\\asher\\Downloads\\College\\unassigned\\doc",
+		"colpdf":"C:\\Users\\asher\\Downloads\\College\\unassigned\\pdf",
+		"Lab":"C:\\Users\\asher\\Downloads\\College\\unassigned",
+		"TMP":"C:\\Users\\asher\\Downloads\\temp",
+		"jpeg": "C:\\Users\\asher\\OneDrive\\Pictures\\Downloaded",
+		"jpg": "C:\\Users\\asher\\OneDrive\\Pictures\\Downloaded"
     },
-        "target_dir":"C:\\Users\\asher\\OneDrive\\Desktop\\Projects\\python\\windows_services\\Download_dir_manager\\download"
+        "target_dir":"C:\\Users\\asher\\Downloads\\managed"
 }
