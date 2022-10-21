@@ -21,6 +21,7 @@ def moveF(path, file, map, mapping, userprofile, rename=0):
             log(path+'\\'+file+" -> " + mapping["fileM"][map] +
                 "\\"+file.replace("#", "")+(""if rename == 0 else str(rename)), userprofile)
         else:
+            print(userprofile)
             os.rename(
                 path+'\\'+file, mapping["fileM"][map]+"\\"+file+(""if rename == 0 else str(rename)))
 
@@ -28,7 +29,7 @@ def moveF(path, file, map, mapping, userprofile, rename=0):
                 "\\"+file+(""if rename == 0 else str(rename)), userprofile)
 
     except FileExistsError:
-        moveF(path, file, map, mapping, rename=rename+1)
+        moveF(path, file, map, mapping, userprofile, rename=rename+1)
 
 
 def fSort(path, mapping, userprofile):
@@ -52,7 +53,6 @@ def monitor(path, mapping, userprofile):
 
 def main():
     userprofile = sys.argv[1]
-    print(os.curdir)
     mapping = json.load(
         open(userprofile+"\\dir_manager\\mapping.json"))
     target = mapping["target_dir"]
